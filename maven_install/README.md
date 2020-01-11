@@ -21,3 +21,16 @@ Java version: 11.0.5, vendor: Private Build, runtime: /usr/lib/jvm/java-11-openj
 Default locale: en, platform encoding: UTF-8
 OS name: "linux", version: "4.15.0-1051-aws", arch: "amd64", family: "unix"
 ```
+### Maven Configuration for Jenkins
+- Go to 'Manage Jenkins' 
+- Click on the "Global Tool Configuration"
+- In the "Maven" Section add Name=Maven, MAVEN_HOME=/opt/maven/apache-maven-3.6.3
+- Then in the down button "Apply" & "Save"
+
+### Maven Plugin to add for Jenkins
+- Go to 'Manage Jenkins'
+- Then to the "Manage Plugin"
+- Now on the 'Available' tab search for "Maven Invoker plugin" & "Unleash Maven Plugin"
+- Select both of them and click "Install Without Restart"
+
+Now you are ready to go for the Maven Project :v:

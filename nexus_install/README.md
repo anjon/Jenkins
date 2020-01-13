@@ -8,20 +8,22 @@ Nexus is an open source artifacts repository manager manager
 ### Installation
 Download a stable version of nexus. But please remember about the cpu requirement of latest nexus which require t3.medium type instance which have 4 vcpu. 
 ```sh
+yum install java-1.8.0-openjdk
 cd /opt
-wget https://sonatype-download.global.ssl.fastly.net/nexus/3/nexus-3.0.2-02-unix.tar.gz
-tar -zxf  nexus-3.0.2-02-unix.tar.gz
-mv nexus-3.0.2-02 nexus
+wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+tar -zxf latest-unix.tar.gz
+mv nexus-3.20.1-01 nexus
 ```
 It is good practice not to run any service as root. So we are creating a new `nexus` user adn grant sudo permission
 ```sh
 adduser nexus
 visudo                              # nexus   ALL=(ALL)       NOPASSWD: ALL
-chown -R nexus:nexus /opt/nexus     # chown -R nexus:nexus /opt/sonatype-work [latest version of nexus] 
+chown -R nexus.nexus nexus
+chown -R nexus.nexus sonatype-work
 ```
 Open /opt/nexus/bin/nexus.rc file, uncomment run_as_user parameter and set it as following.
 ```sh
-vi /opt/nexus/bin/nexus.rc
+vim /opt/nexus/bin/nexus.rc
 run_as_user="nexus" (file shold have only this line)
 ```
 Create a systemd service for nexus.
@@ -52,13 +54,11 @@ systemctl start nexus.service
 
 For checking the nexus log about the progress 
 ```sh
-tail -f data/log/nexus.log
+tail -f /opt/sonatype-work/nexus3/log/nexus.log
 ```
 
 Login nexus server from browser on port 8081. Please check if the port 8081 is open on the Security Group. 
 ```http://<Nexus_server>:8081```  
 
-The defaults credeitial to access the nexus in web.  
-
-username : admin  
-password : admin123
+The defaults is admin and the password you can get from  
+cat /opt/sonatype-work/nexus3/admin.password

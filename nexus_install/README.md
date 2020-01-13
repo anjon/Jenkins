@@ -6,7 +6,7 @@ Nexus is an open source artifacts repository manager manager
 2. Java (java-1.8.0-openjdk).
 
 ### Installation
-Download a stable version of nexus. But please remember about the cpu requirement of latest nexus which require t3.medium type instance which have 4 vcpu. 
+For this installation we need to have java in the system in this case I'm using `java-1.8.0-openjdk`. Then download the latest version of nexus.  
 ```sh
 yum install java-1.8.0-openjdk
 cd /opt
@@ -26,6 +26,14 @@ Open /opt/nexus/bin/nexus.rc file, uncomment run_as_user parameter and set it as
 vim /opt/nexus/bin/nexus.rc
 run_as_user="nexus" (file shold have only this line)
 ```
+For the nexus we need to tune some memory parameter as I'm using the t2.micro instance form aws. Just tune this below 3 memory parameter. The rest defaults are as it was.
+```sh
+vim nexus/bin/nexus.vmoptions
+-Xms512m
+-Xmx512m
+-XX:MaxDirectMemorySize=512m
+```
+
 Create a systemd service for nexus.
 ```sh
 vim /etc/systemd/system/nexus.service

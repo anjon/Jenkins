@@ -7,8 +7,8 @@
 #### Integration Steps
 **Create a Repository in Nexus**
 - Login to the nexus web console `http://nexus-ip:8081/` 
-- Go to the settings `⚙️` then form there click `Repository` --> `create repositoy` --> 
-- From the `Select Recepie` select `maven2(hosted)`. Name the repository which you want. For me I used `TestRepo`
+- Go to the settings `⚙️` then form there click `Repository` --> `create repositoy`.
+- From the `Select Recepie` select type `maven2(hosted)`. Name the repository which you want. For me I used `TestRepo`
 - Use version policy as `Snapshot`. Click the `Create repository`
 
 **Integrate with Jenkins**

@@ -75,8 +75,8 @@ sudo tail -f /opt/sonarqube/logs/sonar.log
 For web access please make sure you have openned port 9000 in security group.  
 `http://sonar-server-ip:9000`
 
-For login use the default credential and then if needed change it.
-user: admin
-password: admin
+For login use the default credential and then if needed change it.  
+user: admin  
+password: admin  
 
 Thanks :whale2:

@@ -20,17 +20,17 @@ sudo mv sonar-scanner-cli-3.3.0.1492-linux /opt/sonar_scanner
 
 ### Configure SonarQube Server in Jenkins With Authentication Token
 ***Step 03:*** Generate authentication token in sonarqube server. 
-  - Login to the sonarqube server. i.e `http://sonaqube-ip:9000/sonar`
-  - Under the `Administration` --> `Security`. Set a name e.g `jenkins` and click `Generate`.
-  - This will generate a wuthentication token we need to use in jenkins to integrate sonarqube server. Copy that token.
+- Login to the sonarqube server. i.e `http://sonaqube-ip:9000/sonar`
+- Under the `Administration` --> `Security`. Set a name e.g `jenkins` and click `Generate`.
+- This will generate a wuthentication token we need to use in jenkins to integrate sonarqube server. Copy that token.
 
-- Add sonarqube server is jenkins. 
-  - Create a credential in jenkins to add the token we generate.
-    - Under the `Administration` --> `Security`. Set a name e.g `jenkins` and click `Generate`. Copy that token.  
-    - `Credentials` --> `Jenkins(Stores scoped to Jenkins)` --> `	Global credentials (unrestricted)`
-    - `Add Credentials`. `Kind=Secret text`, `Secret="the token we generated"`, `ID & Description=Sonar-Admin`.
-    - Click `Ok` to save this.
-  - Set sonarqube server in system configuration. 
-    - `Manage Jenkins` --> `Configure Systems`. In the `SonarQube servers` section click `Add SonarQube`
-    - `Name=Sonar_Server`, `Server URL=http://sonar-server-ip:9000/sonar`
-    - For `Server authentication token` select `Sonar-Admin` form the drop down menu.
+***Step 04:*** Add sonarqube server is jenkins. 
+- Create a credential in jenkins to add the token we generate.
+  - Under the `Administration` --> `Security`. Set a name e.g `jenkins` and click `Generate`. Copy that token.  
+  - `Credentials` --> `Jenkins(Stores scoped to Jenkins)` --> `	Global credentials (unrestricted)`
+  - `Add Credentials`. `Kind=Secret text`, `Secret="the token we generated"`, `ID & Description=Sonar-Admin`.
+  - Click `Ok` to save this.
+- Set sonarqube server in system configuration. 
+  - `Manage Jenkins` --> `Configure Systems`. In the `SonarQube servers` section click `Add SonarQube`
+  - `Name=Sonar_Server`, `Server URL=http://sonar-server-ip:9000/sonar`
+  - For `Server authentication token` select `Sonar-Admin` form the drop down menu.

@@ -47,7 +47,7 @@ RUN_AS_USER=sonar
 sudo vim /opt/sonarqube/conf/sonar.properties
 sonar.jdbc.username=sonarqube
 sonar.jdbc.password=sonarqube123
-sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube
+sonar.jdbc.url=jdbc:postgresql://localhost/sonarqubedb
 sonar.web.javaAdditionalOpts=-server
 sonar.web.host=0.0.0.0
 ```

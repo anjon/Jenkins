@@ -2,7 +2,7 @@
 This is sonar scanner to check and analysis of the source sode of your project. As I have installed and configure a separate sonarqube server now we need to integrate it with jenkins.
 
 ### Install SonarQube Scanner & Plugin in Jenkins 
-1. First we need to download and configure the sonnar scanner in our jenkins server 
+**Step 01** First we need to download and configure the sonnar scanner in our jenkins server 
 - Login jenkins server via ssh and download the sonar scanner.
 ```sh
 cd /opt/

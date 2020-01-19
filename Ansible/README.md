@@ -26,7 +26,7 @@ For this server we are using the passowrd based authenticaton. But for advanced 
 ```sh
 # sed command replaces "PasswordAuthentication no to yes" without editing file 
 sed -ie 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
-sudo service sshd reload
+systemctl restart sshd
 ```
 Now login as ansadmin
 ```sh

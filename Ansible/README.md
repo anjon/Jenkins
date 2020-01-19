@@ -8,13 +8,15 @@ python3 -V
 alternatives --set python /usr/bin/python3
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y
 dnf install ansible
+# For Amazon Linux 
+amazon-linux-extras install ansible2
 ansible --version
 ```
 #### Configure Ansible
 Create a new user for ansible administration & grant sudo access for that user. (Both Master & Slave Node)
 ```sh
 useradd ansadmin
-echo "password" | passed --stdin ansadmin
+echo "password" | passwd --stdin ansadmin
 ```
 Add this `ansadmin` user to the have sudo rights 
 ```sh

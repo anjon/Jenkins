@@ -30,6 +30,7 @@ systemctl restart sshd
 ```
 Now login as ansadmin
 ```sh
+su - ansadmin
 ssh-keygen
 ssh-copy-id ansadmin@<target-server>
 ```

@@ -16,6 +16,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    echo "Small change to test git pull scm"
                     ls -la
                     node --version
                     npm --version

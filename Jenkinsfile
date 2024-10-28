@@ -11,6 +11,7 @@ pipeline {
 
         stage('Docker') {
             steps {
+                sh 'Adding docker building steps'
                 sh 'docker build -t my-playwright .'
             }
         }

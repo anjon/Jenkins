@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         REACT_APP_VERSION = "1.0.$BUILD_ID"
+        AWS_DEFAULT_REGION = "eu-central-1"
     }
 
     stages {
@@ -20,7 +21,7 @@ pipeline {
                     // some block
                     sh '''
                         aws --version
-                        aws ecs register-task-definition --cli-input-json file://Jenkins/aws/task-definition-prod.json
+                        aws ecs register-task-definition --cli-input-json file://aws/task-definition-prod.json
                     '''
                 }
                 

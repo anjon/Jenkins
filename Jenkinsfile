@@ -18,7 +18,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    echo "Small Change for SCM"
+                    echo "Starting building stage ..."
                     ls -la
                     node --version
                     npm --version

@@ -2,12 +2,13 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = "myjenkinsapp"
+        APP_NAME = "learnjenkinsapp"
         REACT_APP_VERSION = "1.0.$BUILD_ID"
         AWS_DEFAULT_REGION = "eu-central-1"
         AWS_ECS_CLUSTER = "LearnJenkinsApp-Cluster-App"
         AWS_ECS_SERVICE_PROD = "LearnJenkinsApp-Service-Prod"
         AWS_ECS_TD_PROD = "LearnJenkinsApp-TaskDefinition-Prod"
+        AWS_DOCKER_REGISTRY = "594860206856.dkr.ecr.eu-central-1.amazonaws.com"
     }
 
     stages {
@@ -41,7 +42,11 @@ pipeline {
                 }
             }
             steps {
-                sh 'docker build -t $APP_NAME:REACT_APP_VERSION .'
+                sh '''
+                    docker build -t $AWS_DOCKER_REGISTRY/$APP_NAME:REACT_APP_VERSION .
+                    aws ecr get-login-password | docker login --username AWS --password-stdin $AWS_DOCKER_REGISTRY 
+                    docker push $AWS_DOCKER_REGISTRY/$APP_NAME:REACT_APP_VERSION
+                '''
             }
         }
 
